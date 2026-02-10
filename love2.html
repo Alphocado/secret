@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Love Word Heart</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: black;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-family: monospace;
+      }
+
+      #ui {
+        position: relative;
+        width: 500px;
+        height: 500px;
+      }
+
+      .love_word {
+        position: absolute;
+        color: #ea80b0;
+        font-size: 1.4rem;
+        text-shadow: 0 0 10px #fff;
+        letter-spacing: 2px;
+        white-space: nowrap;
+        transform: translate(-50%, -50%) rotateZ(-30deg);
+        animation: horizontal 10s infinite alternate ease-in-out;
+      }
+
+      @keyframes horizontal {
+        0% {
+          transform: translate(-50%, -50%) translateX(-10px) rotateZ(-30deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) translateX(10px) rotateZ(-30deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="ui"></div>
+
+    <script>
+      const ui = document.getElementById("ui");
+      const totalWords = 140;
+      const scale = 12;
+
+      function heart(t) {
+        const x = 16 * Math.pow(Math.sin(t), 3);
+        const y =
+          13 * Math.cos(t) -
+          5 * Math.cos(2 * t) -
+          2 * Math.cos(3 * t) -
+          Math.cos(4 * t);
+        return { x, y };
+      }
+
+      for (let i = 0; i < totalWords; i++) {
+        const t = (i / totalWords) * Math.PI * 2;
+        const pos = heart(t);
+
+        const span = document.createElement("span");
+        span.className = "love_word";
+        span.innerText = "I love you";
+
+        span.style.left = `${250 + pos.x * scale}px`;
+        span.style.top = `${250 - pos.y * scale}px`;
+        span.style.animationDelay = `${i * -0.3}s`;
+
+        ui.appendChild(span);
+      }
+    </script>
+  </body>
+</html>
