@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,7 +6,7 @@
     <title>Animated Blooming Flower</title>
 
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
       *,
       *::after,
@@ -29,23 +29,23 @@
         overflow: hidden;
         perspective: 1000px;
       }
-      
+
       .title {
         position: absolute;
         top: 30px;
         font-size: 45px;
         color: white;
         z-index: 999;
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
       }
-      
+
       .reloadBtn {
         position: absolute;
         top: 110px;
         z-index: 999;
         padding: 8px 30px;
         font-size: 18px;
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         border-radius: 5px;
         border: none;
         cursor: pointer;
@@ -54,7 +54,7 @@
       .reloadBtn:hover {
         background-color: #eaeaea;
       }
-      
+
       .night {
         position: fixed;
         left: 50%;
@@ -63,11 +63,8 @@
         width: 100%;
         height: 100%;
         filter: blur(0.1vmin);
-        background-image: radial-gradient(
-            ellipse at top,
-            transparent 0%,
-            var(--dark-color)
-          ),
+        background-image:
+          radial-gradient(ellipse at top, transparent 0%, var(--dark-color)),
           radial-gradient(
             ellipse at bottom,
             var(--dark-color),
@@ -249,7 +246,8 @@
         width: 60%;
         height: 60%;
         border-radius: inherit;
-        background-image: repeating-linear-gradient(
+        background-image:
+          repeating-linear-gradient(
             135deg,
             rgba(0, 0, 0, 0.03) 0px,
             rgba(0, 0, 0, 0.03) 1px,
@@ -359,7 +357,8 @@
       .flower__line {
         height: 55vmin;
         width: 1.5vmin;
-        background-image: linear-gradient(
+        background-image:
+          linear-gradient(
             to left,
             rgba(0, 0, 0, 0.2),
             transparent,
@@ -831,11 +830,8 @@
         height: 10vmin;
         border-radius: 100% 0% 0% 100%/100% 100% 0% 0%;
         box-shadow: inset 0 2px 1vmin rgba(44, 238, 252, 0.2);
-        background-image: linear-gradient(
-            to bottom left,
-            transparent,
-            var(--dark-color)
-          ),
+        background-image:
+          linear-gradient(to bottom left, transparent, var(--dark-color)),
           linear-gradient(
             to bottom right,
             #159faa 50%,
@@ -893,11 +889,8 @@
         height: 10vmin;
         border-radius: 100% 0% 0% 100%/100% 100% 0% 0%;
         box-shadow: inset 0 2px 1vmin rgba(44, 238, 252, 0.2);
-        background-image: linear-gradient(
-            to bottom left,
-            transparent,
-            var(--dark-color) 98%
-          ),
+        background-image:
+          linear-gradient(to bottom left, transparent, var(--dark-color) 98%),
           linear-gradient(
             to bottom right,
             #23f0ff 45%,
@@ -1266,7 +1259,6 @@
   </head>
 
   <body class="not-loaded">
-    <h1 class="title">Animated Blooming Flower</h1>
     <button class="reloadBtn" onclick="bloomFlower()">Bloom Flower</button>
     <div class="night"></div>
     <div class="flowers">
@@ -1580,16 +1572,14 @@
     </div>
 
     <script>
-
       function bloomFlower() {
-          if (document.body.classList.contains('not-loaded')) {
-              document.body.classList.remove("not-loaded");
-              document.querySelector('.reloadBtn').textContent = 'Reload Page';
-          } else {
-            location.reload();
-          }
+        if (document.body.classList.contains("not-loaded")) {
+          document.body.classList.remove("not-loaded");
+          document.querySelector(".reloadBtn").textContent = "Reload Page";
+        } else {
+          location.reload();
+        }
       }
-
     </script>
   </body>
 </html>
